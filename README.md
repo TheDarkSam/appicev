@@ -1,6 +1,6 @@
 # APP DO iCEV
 
-Descrição curta do seu projeto e seu propósito.
+App da aula
 
 ## Como Começar
 
