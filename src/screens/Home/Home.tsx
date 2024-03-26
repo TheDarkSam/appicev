@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 import { styles } from "./styles";
-import InputButton from "../../components/InputButton/Index";
+import InputButton from "../../components/InputButton/index";
 
 export default function Home(){
     return(
