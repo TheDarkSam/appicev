@@ -1,11 +1,15 @@
 import { Text, View, ScrollView, FlatList } from "react-native";
 import { styles } from "./styles";
 import InputButton from "../../components/InputButton/index";
+import { useNavigation } from "@react-navigation/native";
 
-export default function Home( { navigation} ){
+export default function Home( ){
+
+    const navigation = useNavigation();
+
     function apertarBotao( cName : string){
         console.log(`Apertou o botao do campo ${cName}`);
-        navigation.navigate("Config")
+        navigation.navigate("Config", { id: Math.floor(Math.random() * 100), nome: cName});
     }
 
     const formulario = ['cpf', 'nome', 'endereço', 'sobrenome', 'idade', 'escolaridade', 'cidade'];
