@@ -9,7 +9,8 @@ export default function Home( ){
 
     function apertarBotao( cName : string){
         console.log(`Apertou o botao do campo ${cName}`);
-        navigation.navigate("Config", { id: Math.floor(Math.random() * 100), nome: cName});
+        //navigation.navigate("Config", { id: 18, nome: cName});
+        navigation.navigate('Todo');
     }
 
     const formulario = ['cpf', 'nome', 'endereço', 'sobrenome', 'idade', 'escolaridade', 'cidade'];
