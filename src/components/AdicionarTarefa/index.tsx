@@ -5,9 +5,10 @@ type Props = {
     cName : string;
     AddTarefa : () => void;
     ChangeText: (text: string) => void;
+    inputRef?: React.RefObject<TextInput>;
 }
 
-export default function AdicionarTarefa( { cName, AddTarefa, ChangeText } : Props ){
+export default function AdicionarTarefa( { cName, AddTarefa, ChangeText, inputRef } : Props ){
 
     return(
         <View style={styles.viewTextButton}>
@@ -19,6 +20,9 @@ export default function AdicionarTarefa( { cName, AddTarefa, ChangeText } : Prop
                         android: 'visible-password'
                     })}
                     onChangeText={ChangeText}
+                    ref={inputRef}
+                    onSubmitEditing={AddTarefa}
+                    returnKeyType="done"
                 />
                 <TouchableOpacity style={styles.button} onPress={AddTarefa}>
                     <Text style={styles.texto}>+</Text>

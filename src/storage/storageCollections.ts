@@ -1,0 +1,4 @@
+const TAREFA_COLLECTION = 'Tarefas';
+const TURMA_COLLECTION = 'Turma';
+
+export { TAREFA_COLLECTION, TURMA_COLLECTION };
