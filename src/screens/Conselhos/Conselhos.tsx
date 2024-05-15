@@ -9,6 +9,7 @@ import { SalvarTarefas } from "../../storage/Tarefas/salvarTarefas";
 import { CarregarTarefas } from "../../storage/Tarefas/carregarTarefas";
 import { DeleteTarefas } from "../../storage/Tarefas/deleteTarefas";
 import { AppError } from "../../utils/AppError";
+import { api } from "../../services/api";
 
 export default function Conselhos( ){
 
@@ -26,16 +27,23 @@ export default function Conselhos( ){
 
     async function ApiCalls(){
         if(tarefa.trim().length === 0){
-            const response = await fetch('https://api.adviceslip.com/advice', {
-                method: 'GET',
+            const response = await api.get('advice',{
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Cache-Control': 'no-cache',
                 }
             });
-
-            const data = await response.json();
-            const conselho = data.slip.advice;
-            console.log(data.slip.advice);
+            console.log(response.data.slip.advice);
+        } else {
+            const query = tarefa;
+            const response = await api.get(`advice/search/${query}`);
+            if(response.data.message){
+                console.log("Nao existe conselho com essa busca");
+            } else {
+                response.data.slips.forEach((slip: { advice: string; }) => {
+                    console.log(slip.advice);
+                });
+            }
+            //console.log(data.slips[0].advice);
         }
     }
 
