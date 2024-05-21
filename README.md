@@ -1,4 +1,4 @@
-# APP DO iCEV
+# APP DESENVOLVIDO EM AULA DO iCEV
 
 App da aula
 
