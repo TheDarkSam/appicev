@@ -2,6 +2,8 @@ import { Text, View, ScrollView, FlatList } from "react-native";
 import { styles } from "./styles";
 import InputButton from "../../components/InputButton/index";
 import { useNavigation } from "@react-navigation/native";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../services/authToken";
 
 export default function Home( ){
 
@@ -13,6 +15,25 @@ export default function Home( ){
         navigation.navigate('Conselho');
     }
 
+    const email = "candidinho";
+    const password = "123456";
+
+    const creatUser = () =>{
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed up 
+                const user = userCredential.user;
+                console.log(user);
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorMessage);
+            // ..
+        });
+    }
+
     const formulario = ['cpf', 'nome', 'endereço', 'sobrenome', 'idade', 'escolaridade', 'cidade'];
     return(
         <View style={styles.container}>
@@ -20,7 +41,7 @@ export default function Home( ){
             <Text style={styles.subTitulo}>Icev</Text>
             <InputButton
                 cName="Nome"
-                buttonClick={() => apertarBotao("Nome")}
+                buttonClick={() => creatUser()}
             />
             <InputButton
                 cName="Idade"
