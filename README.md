@@ -1,4 +1,4 @@
-# APP DO iCEV
+# APP DESENVOLVIDO EM AULA DO iCEV
 
 App da aula
 
@@ -14,7 +14,7 @@ Siga os passos abaixo para configurar e executar o projeto em sua máquina local
 
 1. Clone o repositório para sua máquina local:
    ```
-   git clone https://github.com/seu-usuario/seu-projeto.git
+   git clone https://github.com/TheDarkSam/appicev.git
    ```
 
 2. Navegue até o diretório do projeto:
