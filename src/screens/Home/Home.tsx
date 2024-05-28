@@ -15,7 +15,7 @@ export default function Home( ){
         navigation.navigate('Conselho');
     }
 
-    const email = "candidinho";
+    const email = "teste@gmail.com";
     const password = "123456";
 
     const creatUser = () =>{
